@@ -1,0 +1,67 @@
+.catalog:
+  name: Hadoop
+  version: 2.7.1
+  description: |
+    Hadoop cluster.
+  minimum_rancher_version: v0.59.0
+  maintainer: "Prashant Pratap Singh <singh.pp7@gmail.com>"
+  uuid: hadoop-0
+  questions:
+    - variable: "cpu_vcores"
+      description: "yarn.nodemanager.resource.cpu-vcores"
+      label: "Nodemanager cpu vcores:"
+      required: true
+      default: 4
+      type: "int"
+    - variable: "resource_mem"
+      description: "yarn.nodemanager.resource.memory-mb"
+      label: "Nodemanager resource memory in mb:"
+      required: true
+      default: 2048
+      type: "int"
+    - variable: "min_allocation"
+      description: "yarn.scheduler.minimum-allocation-mb"
+      label: "Scheduler Min Allocation in mb:"
+      required: true
+      default: 1024
+      type: "int"
+namenode-primary:
+  scale: 1
+  metadata: &hdfs_metadata
+    core-site:
+      hadoop.proxyuser.hue.hosts: "*"
+      hadoop.proxyuser.hue.groups: "*"
+    hdfs-site:
+      dfs.replication: "1"
+      dfs.webhdfs.enabled: "true"
+datanode:
+  scale: 1
+  metadata: *hdfs_metadata
+yarn-resourcemanager:
+  scale: 1
+  metadata: &yarn_metadata
+    core-site:
+      hadoop.proxyuser.hue.hosts: "*"
+      hadoop.proxyuser.hue.groups: "*"
+    hdfs-site:
+      dfs-replication: "1"
+      dfs.webhdfs.enabled: "true"
+    yarn-site:
+      yarn.nodemanager.resource.cpu-vcores: ${cpu_vcores}
+      yarn.nodemanager.resource.memory-mb: ${resource_mem}
+      yarn.scheduler.minimum-allocation-mb: ${min_allocation}
+      yarn.nodemanager.aux-services: "mapreduce_shuffle"
+      yarn.log-aggregation-enable: "true"
+      yarn.log-aggregation.retain-seconds: 10800
+      yarn.log-aggregation.retain-check-interval-seconds: 3600
+    mapred-site:
+      mapreduce.map.memory.mb: "512"
+      mapreduce.reduce.memory.mb: "1024"
+      mapreduce.map.java.opts: "-Xmx512m"
+      mapreduce.reduce.java.opts: "-Xmx1024m"
+jobhistory-server:
+  scale: 1
+  metadata: *yarn_metadata
+yarn-nodemanager:
+  scale: 1
+  metadata: *yarn_metadata
