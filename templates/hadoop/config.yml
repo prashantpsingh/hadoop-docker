@@ -1,0 +1,7 @@
+name: Hadoop Cluster
+description: |
+  Hadoop cluster
+version: Hadoop-2.7.1
+category: Clustering
+maintainer: "Prashant Pratap singh <singh.pp7@gmail.com@gmail.com>"
+minimum_rancher_version: v0.59.0
