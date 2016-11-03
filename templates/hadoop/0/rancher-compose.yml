@@ -7,55 +7,55 @@
   maintainer: "Prashant Pratap Singh <singh.pp7@gmail.com>"
   uuid: hadoop-0
   questions:
-    - variable: "vcores-num"
+    - variable: "vcores_num"
       description: "yarn.nodemanager.resource.cpu-vcores"
       label: "Nodemanager cpu vcores:"
       required: true
       default: 4
       type: "int"
-    - variable: "nm-mem"
+    - variable: "nm_mem"
       description: "yarn.nodemanager.resource.memory-mb"
       label: "Nodemanager resource memory in mb:"
       required: true
       default: 2048
       type: "int"
-    - variable: "scheduler-min-mb"
+    - variable: "scheduler_min_mb"
       description: "yarn.scheduler.minimum-allocation-mb"
       label: "Scheduler Min Allocation in mb:"
       required: true
       default: 1024
       type: "int"
-    - variable: "log-agg"
+    - variable: "log_agg"
       description: "yarn.log-aggregation-enable"
       label: "Log Aggregation required?:"
       required: true
       default: "true"
       type: "string"
-    - variable: "map-mem"
+    - variable: "map_mem"
       description: "mapreduce.map.memory.mb"
       label: "Map memory:"
       required: true
       default: 512
       type: "int"
-    - variable: "reduce-mem"
+    - variable: "reduce_mem"
       description: "mapreduce.reduce.memory.mb"
       label: "Reduce memory:"
       required: true
       default: 512
       type: "int"
-    - variable: "map-opts"
+    - variable: "map_opts"
       description: "mapreduce.map.java.opts"
       label: "Map java opts:"
       required: true
       default: "-Xmx512m"
       type: "string"
-    - variable: "reduce-opts"
+    - variable: "reduce_opts"
       description: "mapreduce.reduce.java.opts"
       label: "Reduce java opts:"
       required: true
       default: "-Xmx1024m"
       type: "string"
-    - variable: "dfs-replication"
+    - variable: "dfs_replication"
       description: "DFS replication"
       label: "dfs replication:"
       required: true
