@@ -3,68 +3,68 @@ namenode:
   restart: always
   command: bash /usr/local/hadoop-2.7.1/start-hadoop.sh namenode namenode secondarynamenode resourcemanager hadoop
   environment:
-   - VCORES_NUM=${vcores-num}
-   - NM_MEM=${nm-mem}
-   - SCHEDULER_MIN_MB=${scheduler-min-mb}
-   - LOG_AGG=${log-agg}
-   - MAP_MEM=${map-mem}
-   - REDUCE_MEM=${reduce-mem}
-   - MAP_OPTS=${map-opts}
-   - REDUCE_OPTS={reduce-opts}
-   - DFS_REPLICATION=${dfs-replication}
+   - VCORES_NUM=${vcores_num}
+   - NM_MEM=${nm_mem}
+   - SCHEDULER_MIN_MB=${scheduler_min_mb}
+   - LOG_AGG=${log_agg}
+   - MAP_MEM=${map_mem}
+   - REDUCE_MEM=${reduce_mem}
+   - MAP_OPTS=${map_opts}
+   - REDUCE_OPTS={reduce_opts}
+   - DFS_REPLICATION=${dfs_replication}
 secondarynamenode:
   image: prashantpsingh/hadoop
   restart: always
   command: bash /usr/local/hadoop-2.7.1/start-hadoop.sh secondarynamenode namenode secondarynamenode resourcemanager hadoop
   environment:
-   - VCORES_NUM=${vcores-num}
-   - NM_MEM=${nm-mem}
-   - SCHEDULER_MIN_MB=${scheduler-min-mb}
-   - LOG_AGG=${log-agg}
-   - MAP_MEM=${map-mem}
-   - REDUCE_MEM=${reduce-mem}
-   - MAP_OPTS=${map-opts}
-   - REDUCE_OPTS={reduce-opts}
-   - DFS_REPLICATION=${dfs-replication}
+   - VCORES_NUM=${vcores_num}
+   - NM_MEM=${nm_mem}
+   - SCHEDULER_MIN_MB=${scheduler_min_mb}
+   - LOG_AGG=${log_agg}
+   - MAP_MEM=${map_mem}
+   - REDUCE_MEM=${reduce_mem}
+   - MAP_OPTS=${map_opts}
+   - REDUCE_OPTS={reduce_opts}
+   - DFS_REPLICATION=${dfs_replication}
 datanode:
   image: prashantpsingh/hadoop
   restart: always
   command: bash /usr/local/hadoop-2.7.1/start-hadoop.sh datanode namenode secondarynamenode resourcemanager hadoop
   environment:
-   - VCORES_NUM=${vcores-num}
-   - NM_MEM=${nm-mem}
-   - SCHEDULER_MIN_MB=${scheduler-min-mb}
-   - LOG_AGG=${log-agg}
-   - MAP_MEM=${map-mem}
-   - REDUCE_MEM=${reduce-mem}
-   - MAP_OPTS=${map-opts}
-   - REDUCE_OPTS={reduce-opts}
-   - DFS_REPLICATION=${dfs-replication}
+   - VCORES_NUM=${vcores_num}
+   - NM_MEM=${nm_mem}
+   - SCHEDULER_MIN_MB=${scheduler_min_mb}
+   - LOG_AGG=${log_agg}
+   - MAP_MEM=${map_mem}
+   - REDUCE_MEM=${reduce_mem}
+   - MAP_OPTS=${map_opts}
+   - REDUCE_OPTS={reduce_opts}
+   - DFS_REPLICATION=${dfs_replication}
 resourcemanager:
   image: prashantpsingh/hadoop
   restart: always
   command: bash /usr/local/hadoop-2.7.1/start-hadoop.sh resourcemanager namenode secondarynamenode resourcemanager yarn
   environment:
-   - VCORES_NUM=${vcores-num}
-   - NM_MEM=${nm-mem}
-   - SCHEDULER_MIN_MB=${scheduler-min-mb}
-   - LOG_AGG=${log-agg}
-   - MAP_MEM=${map-mem}
-   - REDUCE_MEM=${reduce-mem}
-   - MAP_OPTS=${map-opts}
-   - REDUCE_OPTS={reduce-opts}
-   - DFS_REPLICATION=${dfs-replication}
+   - VCORES_NUM=${vcores_num}
+   - NM_MEM=${nm_mem}
+   - SCHEDULER_MIN_MB=${scheduler_min_mb}
+   - LOG_AGG=${log_agg}
+   - MAP_MEM=${map_mem}
+   - REDUCE_MEM=${reduce_mem}
+   - MAP_OPTS=${map_opts}
+   - REDUCE_OPTS={reduce_opts}
+   - DFS_REPLICATION=${dfs_replication}
 nodemanager:
   image: prashantpsingh/hadoop
   restart: always
   command: bash /usr/local/hadoop-2.7.1/start-hadoop.sh nodemanager namenode secondarynamenode resourcemanager yarn
   environment:
-   - VCORES_NUM=${vcores-num}
-   - NM_MEM=${nm-mem}
-   - SCHEDULER_MIN_MB=${scheduler-min-mb}
-   - LOG_AGG=${log-agg}
-   - MAP_MEM=${map-mem}
-   - REDUCE_MEM=${reduce-mem}
-   - MAP_OPTS=${map-opts}
-   - REDUCE_OPTS={reduce-opts}
-   - DFS_REPLICATION=${dfs-replication}
+   - VCORES_NUM=${vcores_num}
+   - NM_MEM=${nm_mem}
+   - SCHEDULER_MIN_MB=${scheduler_min_mb}
+   - LOG_AGG=${log_agg}
+   - MAP_MEM=${map_mem}
+   - REDUCE_MEM=${reduce_mem}
+   - MAP_OPTS=${map_opts}
+   - REDUCE_OPTS={reduce_opts}
+   - DFS_REPLICATION=${dfs_replication}
