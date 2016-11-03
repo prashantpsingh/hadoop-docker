@@ -26,6 +26,8 @@ secondarynamenode:
    - MAP_OPTS=${map_opts}
    - REDUCE_OPTS={reduce_opts}
    - DFS_REPLICATION=${dfs_replication}
+  links: 
+    - namenode:namenode
 datanode:
   image: prashantpsingh/hadoop
   restart: always
@@ -40,6 +42,9 @@ datanode:
    - MAP_OPTS=${map_opts}
    - REDUCE_OPTS={reduce_opts}
    - DFS_REPLICATION=${dfs_replication}
+  links: 
+    - namenode:namenode
+    - resourcemanager:resourcemanager    
 resourcemanager:
   image: prashantpsingh/hadoop
   restart: always
@@ -54,6 +59,8 @@ resourcemanager:
    - MAP_OPTS=${map_opts}
    - REDUCE_OPTS={reduce_opts}
    - DFS_REPLICATION=${dfs_replication}
+  links: 
+    - namenode:namenode
 nodemanager:
   image: prashantpsingh/hadoop
   restart: always
@@ -68,3 +75,6 @@ nodemanager:
    - MAP_OPTS=${map_opts}
    - REDUCE_OPTS={reduce_opts}
    - DFS_REPLICATION=${dfs_replication}
+  links: 
+    - namenode:namenode
+    - resourcemanager:resourcemanager      
