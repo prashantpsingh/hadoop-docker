@@ -17,13 +17,13 @@
       description: "yarn.nodemanager.resource.memory-mb"
       label: "Nodemanager resource memory in mb:"
       required: true
-      default: 2048
+      default: 1024
       type: "int"
     - variable: "scheduler_min_mb"
       description: "yarn.scheduler.minimum-allocation-mb"
       label: "Scheduler Min Allocation in mb:"
       required: true
-      default: 1024
+      default: 512
       type: "int"
     - variable: "log_agg"
       description: "yarn.log-aggregation-enable"
