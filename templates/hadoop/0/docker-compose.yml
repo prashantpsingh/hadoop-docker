@@ -12,6 +12,8 @@ namenode:
    - MAP_OPTS=${map_opts}
    - REDUCE_OPTS={reduce_opts}
    - DFS_REPLICATION=${dfs_replication}
+  ports:
+   - 50070:50070
 secondarynamenode:
   image: prashantpsingh/hadoop
   restart: always
@@ -27,7 +29,9 @@ secondarynamenode:
    - REDUCE_OPTS={reduce_opts}
    - DFS_REPLICATION=${dfs_replication}
   links: 
-    - namenode:namenode
+   - namenode:namenode
+  ports:
+   - 50090:50090
 datanode:
   image: prashantpsingh/hadoop
   restart: always
@@ -43,8 +47,12 @@ datanode:
    - REDUCE_OPTS={reduce_opts}
    - DFS_REPLICATION=${dfs_replication}
   links: 
-    - namenode:namenode
-    - resourcemanager:resourcemanager    
+   - namenode:namenode
+   - resourcemanager:resourcemanager
+  ports:
+   - 50010:50010
+   - 50075:50075
+   - 50020:50020
 resourcemanager:
   image: prashantpsingh/hadoop
   restart: always
@@ -61,6 +69,12 @@ resourcemanager:
    - DFS_REPLICATION=${dfs_replication}
   links: 
     - namenode:namenode
+  ports:
+   - 8088:8088
+   - 8032:8032
+   - 8033:8033
+   - 8030:8030
+   - 8031:8031
 nodemanager:
   image: prashantpsingh/hadoop
   restart: always
@@ -76,5 +90,10 @@ nodemanager:
    - REDUCE_OPTS={reduce_opts}
    - DFS_REPLICATION=${dfs_replication}
   links: 
-    - namenode:namenode
-    - resourcemanager:resourcemanager      
+   - namenode:namenode
+   - resourcemanager:resourcemanager
+  ports:
+   - 50030:50030
+   - 50060:50060
+   - 8040:8040
+   - 8041:8042
