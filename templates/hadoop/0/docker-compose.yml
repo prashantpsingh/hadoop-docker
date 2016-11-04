@@ -1,5 +1,5 @@
 namenode:
-  image: prashantpsingh/hadoop:1
+  image: prashantpsingh/hadoop
   restart: always
   command: bash /usr/local/hadoop-2.7.1/start-hadoop.sh namenode namenode secondarynamenode resourcemanager hadoop
   environment:
@@ -13,7 +13,7 @@ namenode:
    - REDUCE_OPTS={reduce_opts}
    - DFS_REPLICATION=${dfs_replication}
 secondarynamenode:
-  image: prashantpsingh/hadoop:1
+  image: prashantpsingh/hadoop
   restart: always
   command: bash /usr/local/hadoop-2.7.1/start-hadoop.sh secondarynamenode namenode secondarynamenode resourcemanager hadoop
   environment:
@@ -29,7 +29,7 @@ secondarynamenode:
   links: 
     - namenode:namenode
 datanode:
-  image: prashantpsingh/hadoop:1
+  image: prashantpsingh/hadoop
   restart: always
   command: bash /usr/local/hadoop-2.7.1/start-hadoop.sh datanode namenode secondarynamenode resourcemanager hadoop
   environment:
@@ -46,7 +46,7 @@ datanode:
     - namenode:namenode
     - resourcemanager:resourcemanager    
 resourcemanager:
-  image: prashantpsingh/hadoop:1
+  image: prashantpsingh/hadoop
   restart: always
   command: bash /usr/local/hadoop-2.7.1/start-hadoop.sh resourcemanager namenode secondarynamenode resourcemanager yarn
   environment:
@@ -62,7 +62,7 @@ resourcemanager:
   links: 
     - namenode:namenode
 nodemanager:
-  image: prashantpsingh/hadoop:1
+  image: prashantpsingh/hadoop
   restart: always
   command: bash /usr/local/hadoop-2.7.1/start-hadoop.sh nodemanager namenode secondarynamenode resourcemanager yarn
   environment:
