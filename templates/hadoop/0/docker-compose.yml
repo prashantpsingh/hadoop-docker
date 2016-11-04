@@ -10,7 +10,7 @@ namenode:
    - MAP_MEM=${map_mem}
    - REDUCE_MEM=${reduce_mem}
    - MAP_OPTS=${map_opts}
-   - REDUCE_OPTS={reduce_opts}
+   - REDUCE_OPTS=${reduce_opts}
    - DFS_REPLICATION=${dfs_replication}
   ports:
    - 50070:50070
@@ -26,7 +26,7 @@ secondarynamenode:
    - MAP_MEM=${map_mem}
    - REDUCE_MEM=${reduce_mem}
    - MAP_OPTS=${map_opts}
-   - REDUCE_OPTS={reduce_opts}
+   - REDUCE_OPTS=${reduce_opts}
    - DFS_REPLICATION=${dfs_replication}
   links: 
    - namenode:namenode
@@ -44,7 +44,7 @@ datanode:
    - MAP_MEM=${map_mem}
    - REDUCE_MEM=${reduce_mem}
    - MAP_OPTS=${map_opts}
-   - REDUCE_OPTS={reduce_opts}
+   - REDUCE_OPTS=${reduce_opts}
    - DFS_REPLICATION=${dfs_replication}
   links: 
    - namenode:namenode
@@ -65,7 +65,7 @@ resourcemanager:
    - MAP_MEM=${map_mem}
    - REDUCE_MEM=${reduce_mem}
    - MAP_OPTS=${map_opts}
-   - REDUCE_OPTS={reduce_opts}
+   - REDUCE_OPTS=${reduce_opts}
    - DFS_REPLICATION=${dfs_replication}
   links: 
     - namenode:namenode
@@ -87,7 +87,7 @@ nodemanager:
    - MAP_MEM=${map_mem}
    - REDUCE_MEM=${reduce_mem}
    - MAP_OPTS=${map_opts}
-   - REDUCE_OPTS={reduce_opts}
+   - REDUCE_OPTS=${reduce_opts}
    - DFS_REPLICATION=${dfs_replication}
   links: 
    - namenode:namenode
